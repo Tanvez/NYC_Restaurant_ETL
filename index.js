@@ -19,6 +19,7 @@ if (process.env.NODE_ENV !== 'test') {
 // Add `/api` routes
 const router = express.Router();
 routes.forEach(routeFn => routeFn(router));
+
 app.use('/api', router);
 
 // Generic error handler

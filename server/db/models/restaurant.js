@@ -1,10 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
   const Restaurant = sequelize.define(
-    'Restaurant',
+    'restaurant',
     {
       camis: DataTypes.INTEGER,
       dba: DataTypes.TEXT,
       boro: DataTypes.TEXT,
+      street:DataTypes.TEXT,
       building: DataTypes.TEXT,
       zip: DataTypes.TEXT,
       phone: DataTypes.TEXT,
@@ -12,9 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       inspectionDate: DataTypes.DATEONLY,
       action: DataTypes.TEXT,
       violationCode: DataTypes.TEXT,
+      violationDescription: DataTypes.TEXT,
       criticalFlag: DataTypes.TEXT,
       score: DataTypes.INTEGER,
-      grade: DataTypes.ENUM(['A','B','C','D','F' ]),
+      grade: DataTypes.TEXT,
       gradeDate: DataTypes.DATEONLY,
       recordDate: DataTypes.DATEONLY,
       inspectionType: DataTypes.TEXT

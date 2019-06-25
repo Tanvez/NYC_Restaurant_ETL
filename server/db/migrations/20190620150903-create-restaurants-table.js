@@ -2,27 +2,23 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => 
-      queryInterface.createTable('Restaurants', { 
+      queryInterface.createTable('restaurants', { 
         id: {
           allowNull: false,
           autoIncrement: true,
           primaryKey: true,
           type: Sequelize.INTEGER,
         },
-        createdAt: {
-          allowNull: false,
-          type: Sequelize.DATE,
-        },
-        updatedAt: {
-          allowNull: false,
-          type: Sequelize.DATE,
-        },
         camis: {
           type:Sequelize.INTEGER,
-          allowNull: false},
+          allowNull: false
+        },
         dba: {
           type:Sequelize.TEXT,
           allowNull: false
+        },
+        street: {
+          type:Sequelize.TEXT
         },
         boro: {
           type:Sequelize.TEXT,
@@ -52,6 +48,9 @@ module.exports = {
         violationCode: {
           type:Sequelize.TEXT
         },
+        violationDescription: {
+          type:Sequelize.TEXT
+        },
         criticalFlag: {
           type:Sequelize.TEXT
         },
@@ -59,7 +58,7 @@ module.exports = {
           type:Sequelize.INTEGER
         },
         grade: {
-          type:Sequelize.ENUM(['A','B','C','D','F' ])
+          type:Sequelize.TEXT
         },
         gradeDate: {
           type:Sequelize.DATEONLY
@@ -69,9 +68,17 @@ module.exports = {
         },
         inspectionType: {
           type:Sequelize.TEXT
+        },
+        createdAt: {
+          // allowNull: true,
+          type: Sequelize.DATE,
+        },
+        updatedAt: {
+          // allowNull: false,
+          type: Sequelize.DATE,
         }
       })
   ,
   down: (queryInterface, Sequelize) =>
-      queryInterface.dropTable('Restaurants')
+      queryInterface.dropTable('restaurants')
 };
